@@ -70,7 +70,7 @@ try {
             turingMachine.inputSymbols.concat(EPS).forEach((b) => {
                 turingMachine.tapeSymbols.forEach((E) => {
                     let from = `[${b},${E}]${deltaFunction.fromState}[${a},${deltaFunction.fromSymbol}]`;
-                    let to = `${deltaFunction.toState}[${b},${E}][${a},${deltaFunction.toState}]`;
+                    let to = `${deltaFunction.toState}[${b},${E}][${a},${deltaFunction.toSymbol}]`;
                     if (grammar[from] === undefined) {
                         grammar[from] = [];
                     }
@@ -80,11 +80,6 @@ try {
         });
     });
 
-    grammar[`${turingMachine.acceptState}${RightMarker}`] = [];
-    grammar[`${turingMachine.acceptState}${RightMarker}`].push(EPS);
-
-    grammar[`${LeftMarker}${turingMachine.acceptState}`] = [];
-    grammar[`${LeftMarker}${turingMachine.acceptState}`].push(EPS);
 
 
     turingMachine.inputSymbols.concat(EPS).forEach((a) => {
@@ -106,6 +101,12 @@ try {
 
         });
     });
+
+    grammar[`${turingMachine.acceptState}${RightMarker}`] = [];
+    grammar[`${turingMachine.acceptState}${RightMarker}`].push(EPS);
+
+    grammar[`${LeftMarker}${turingMachine.acceptState}`] = [];
+    grammar[`${LeftMarker}${turingMachine.acceptState}`].push(EPS);
 
 
     // output result
