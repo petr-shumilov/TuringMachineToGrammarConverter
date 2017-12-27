@@ -216,7 +216,7 @@ try {
 
     // 4
     tm.inputSymbols.forEach((a) => {
-        grammar['A1'].push(`${LeftMarker} ${tm.startState} ${a} ${a}][A2]`);
+        grammar['A1'].push(`[${LeftMarker} ${tm.startState} ${a} ${a}][A2]`);
         if (grammar['A2'] === undefined) {
             grammar['A2'] = [];
         }
