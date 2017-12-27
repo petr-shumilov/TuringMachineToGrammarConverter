@@ -72,7 +72,7 @@ try {
                 });
             }
             else {
-                if (df.fromSymbol === RightMarker && df.shift === 'R') {
+                if (df.fromSymbol === RightMarker && df.shift === 'L') {
                     tm.tapeSymbols.forEach((X) => {
                         // 2.4
                         let from = `[${LeftMarker} ${X} ${a} ${df.fromState} ${RightMarker}]`;
@@ -119,7 +119,7 @@ try {
                                 }
                                 grammar[_from].push(`[${LeftMarker} ${df.toState} ${Z} ${b}][${df.toSymbol} ${a}]`);
 
-                                // 7.2
+                                // 7.3
                                 _from = `[${Z} ${b}][${df.fromState} ${df.fromSymbol} ${a} ${RightMarker}]`;
                                 if (grammar[_from] === undefined) {
                                     grammar[_from] = [];
@@ -221,7 +221,7 @@ try {
         if (grammar['A2'] === undefined) {
             grammar['A2'] = [];
         }
-        grammar['A2'].push(`[${a} ${a}][${a}]`);
+        grammar['A2'].push(`[${a} ${a}][A2]`);
         grammar['A2'].push(`[${a} ${a} ${RightMarker}]`);
     });
 
