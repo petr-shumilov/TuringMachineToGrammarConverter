@@ -28,18 +28,19 @@ try {
     });
 
     // init Turing Machine obj
-    const tm = {
-        states: Array.from(states),
-        tapeSymbols: ['1_1_0', '0_B_0', '1', '0_B_1', '0_0_1', '0', '0_0_0', '0_0_B', '1_1_1', '1_B_B', '0_1_1', '1_0_1', '1_0__1', '1_1_B', '0_1_0', '1_0_0', '0_1_B', '1_B_0', '0_0__1', '1_0_B', '1_B_1', '0_B_B'], //gamma
-        inputSymbols: ['0', '1'], // sigma
-        deltaFunctions: deltaFunctions,
-        startState: 'Q0',
-        acceptState: 'Qk'
-    };
     const EPS = 'E';
     const Blank = 'B';
     const LeftMarker = '#';
     const RightMarker = '$';
+    const tm = {
+        states: Array.from(states),
+        tapeSymbols: [LeftMarker, RightMarker, '1_1_0', '0_B_0', '1', '0_B_1', '0_0_1', '0', '0_0_0', '0_0_B', '1_1_1', '1_B_B', '0_1_1', '1_0_1', '1_0__1', '1_1_B', '0_1_0', '1_0_0', '0_1_B', '1_B_0', '0_0__1', '1_0_B', '1_B_1', '0_B_B'],
+        inputSymbols: ['0', '1', LeftMarker, RightMarker],
+        deltaFunctions: deltaFunctions,
+        startState: 'Q0',
+        acceptState: 'Qk'
+    };
+
 
 
     let grammar = {};
