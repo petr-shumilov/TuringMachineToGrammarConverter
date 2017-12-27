@@ -1,0 +1,11 @@
+{
+  "name": "tm_to_gr_type0",
+  "version": "1.0.0",
+  "description": "Turing machine to grammar type 0 (Chomsky ordering) converter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Petr Shumilov & Grigiry Volkov",
+  "license": "MIT"
+}
