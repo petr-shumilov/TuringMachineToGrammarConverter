@@ -78,6 +78,7 @@ try {
     });
 
 
+    grammar[`(${turingMachine.acceptState})`] = EPS;
 
     turingMachine.inputSymbols.concat(EPS).forEach((a) => {
         turingMachine.tapeSymbols.forEach((C) => {
