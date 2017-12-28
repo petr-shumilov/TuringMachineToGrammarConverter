@@ -44,7 +44,7 @@ try {
 
     let grammar = {};
     // build grammar
-    grammar['A1'] = `${turingMachine.startState}A2`;
+    grammar['A1'] = `(${turingMachine.startState})A2`;
     grammar['A2'] = [];
     turingMachine.inputSymbols.forEach((a) => {
         grammar['A2'].push(`[${a},${a}]A2`);
@@ -57,8 +57,8 @@ try {
 
     turingMachine.deltaFunctions.filter((deltaFunction) => {return (deltaFunction.shift === 'R')}).forEach((deltaFunction) => {
         turingMachine.inputSymbols.concat(EPS).forEach((a) => {
-            let from = `${deltaFunction.fromState}[${a},${deltaFunction.fromSymbol}]`;
-            let to = `[${a},${deltaFunction.toSymbol}]${deltaFunction.toState}`;
+            let from = `(${deltaFunction.fromState})[${a},${deltaFunction.fromSymbol}]`;
+            let to = `[${a},${deltaFunction.toSymbol}](${deltaFunction.toState})`;
             (grammar[from] = grammar[from] || []).push(to);
 
         });
@@ -69,8 +69,8 @@ try {
         turingMachine.inputSymbols.concat(EPS).forEach((a) => {
             turingMachine.inputSymbols.concat(EPS).forEach((b) => {
                 turingMachine.tapeSymbols.forEach((E) => {
-                    let from = `[${b},${E}]${deltaFunction.fromState}[${a},${deltaFunction.fromSymbol}]`;
-                    let to = `${deltaFunction.toState}[${b},${E}][${a},${deltaFunction.toSymbol}]`;
+                    let from = `[${b},${E}](${deltaFunction.fromState})[${a},${deltaFunction.fromSymbol}]`;
+                    let to = `(${deltaFunction.toState})[${b},${E}][${a},${deltaFunction.toSymbol}]`;
                     (grammar[from] = grammar[from] || []).push(to);
                 });
             });
@@ -82,9 +82,9 @@ try {
     turingMachine.inputSymbols.concat(EPS).forEach((a) => {
         turingMachine.tapeSymbols.forEach((C) => {
 
-            let from = `[${a},${C}]${turingMachine.acceptState}`;
-            let _from = `${turingMachine.acceptState}[${a},${C}]`;
-            let to = `${turingMachine.acceptState}${a}${turingMachine.acceptState}`;
+            let from = `[${a},${C}](${turingMachine.acceptState})`;
+            let _from = `(${turingMachine.acceptState})[${a},${C}]`;
+            let to = `(${turingMachine.acceptState})${a}(${turingMachine.acceptState})`;
 
             (grammar[from] = grammar[from] || []).push(to);
             (grammar[_from] = grammar[_from] || []).push(to);
@@ -92,11 +92,11 @@ try {
         });
     });
 
-    grammar[`${turingMachine.acceptState}${RightMarker}`] = [];
-    grammar[`${turingMachine.acceptState}${RightMarker}`].push(EPS);
+    grammar[`(${turingMachine.acceptState})${RightMarker}`] = [];
+    grammar[`(${turingMachine.acceptState})${RightMarker}`].push(EPS);
 
-    grammar[`${LeftMarker}${turingMachine.acceptState}`] = [];
-    grammar[`${LeftMarker}${turingMachine.acceptState}`].push(EPS);
+    grammar[`${LeftMarker}(${turingMachine.acceptState})`] = [];
+    grammar[`${LeftMarker}(${turingMachine.acceptState})`].push(EPS);
 
 
     // output result
