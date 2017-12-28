@@ -107,11 +107,11 @@ try {
     Object.keys(grammar).forEach((key) => {
         if (Array.isArray(grammar[key]) === true) {
             for (let i = 0; i < grammar[key].length; ++i) {
-                writeStream.write(`${key} -> ${grammar[key][i]}\n`);
+                writeStream.write(`${key} -> ${grammar[key][i]}${os.EOL}`);
             }
         }
         else {
-            writeStream.write(`${key} -> ${grammar[key]}\n`);
+            writeStream.write(`${key} -> ${grammar[key]}${os.EOL}`);
         }
     });
     writeStream.end(() => {

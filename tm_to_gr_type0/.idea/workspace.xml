@@ -14,17 +14,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-665">
-              <caret line="69" column="121" lean-forward="false" selection-start-line="69" selection-start-column="121" selection-end-line="69" selection-end-column="121" />
+            <state relative-caret-position="250">
+              <caret line="113" column="68" lean-forward="false" selection-start-line="113" selection-start-column="68" selection-end-line="113" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grammar0.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="grammar0.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grammar0.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="295">
@@ -72,8 +72,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/tm.src" />
-        <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/grammar0.txt" />
+        <option value="$PROJECT_DIR$/index.js" />
       </list>
     </option>
   </component>
@@ -176,12 +176,12 @@
       <updated>1514307912524</updated>
       <workItem from="1514307913808" duration="18675000" />
       <workItem from="1514334985151" duration="80000" />
-      <workItem from="1514338363950" duration="13127000" />
+      <workItem from="1514338363950" duration="13136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31882000" />
+    <option name="totallyTimeSpent" value="31891000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -282,18 +282,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-665">
-          <caret line="69" column="121" lean-forward="false" selection-start-line="69" selection-start-column="121" selection-end-line="69" selection-end-column="121" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grammar0.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="90913" column="3" lean-forward="true" selection-start-line="90913" selection-start-column="3" selection-end-line="90913" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="113" column="68" lean-forward="false" selection-start-line="113" selection-start-column="68" selection-end-line="113" selection-end-column="68" />
           <folding />
         </state>
       </provider>
