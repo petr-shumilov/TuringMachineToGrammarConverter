@@ -37,7 +37,9 @@ try {
         inputSymbols: ['0', '1', LeftMarker, RightMarker],
         deltaFunctions: deltaFunctions,
         startState: 'Q0',
-        acceptState: 'Qk'
+        acceptState: 'Qk',
+        leftShiftSymbol: 'L',
+        rightShiftSymbol: 'R'
     };
 
 
@@ -55,7 +57,7 @@ try {
     grammar['A3'].push(EPS);
 
 
-    turingMachine.deltaFunctions.filter((deltaFunction) => {return (deltaFunction.shift === 'R')}).forEach((deltaFunction) => {
+    turingMachine.deltaFunctions.filter((deltaFunction) => {return (deltaFunction.shift === turingMachine.rightShiftSymbol)}).forEach((deltaFunction) => {
         turingMachine.inputSymbols.concat(EPS).forEach((a) => {
             let from = `(${deltaFunction.fromState})[${a},${deltaFunction.fromSymbol}]`;
             let to = `[${a},${deltaFunction.toSymbol}](${deltaFunction.toState})`;
@@ -65,7 +67,7 @@ try {
     });
 
 
-    turingMachine.deltaFunctions.filter((deltaFunction) => {return (deltaFunction.shift === 'L')}).forEach((deltaFunction) => {
+    turingMachine.deltaFunctions.filter((deltaFunction) => {return (deltaFunction.shift === turingMachine.leftShiftSymbol)}).forEach((deltaFunction) => {
         turingMachine.inputSymbols.concat(EPS).forEach((a) => {
             turingMachine.inputSymbols.concat(EPS).forEach((b) => {
                 turingMachine.tapeSymbols.forEach((E) => {

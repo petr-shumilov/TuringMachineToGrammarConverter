@@ -28,8 +28,6 @@ try {
     });
 
     // init Turing Machine obj
-    const EPS = 'E';
-    const Blank = 'B';
     const LeftMarker = '#';
     const RightMarker = '$';
     const tm = {
@@ -38,7 +36,9 @@ try {
         inputSymbols: ['0', '1'],
         deltaFunctions: deltaFunctions,
         startState: 'Q0',
-        acceptState: 'Qk'
+        acceptState: 'Qk',
+        leftShiftSymbol: 'L',
+        rightShiftSymbol: 'R'
     };
 
 
@@ -55,7 +55,7 @@ try {
     
     tm.deltaFunctions.filter((df) => {return (tm.states.includes(df.fromState));}).forEach((df) => {
         tm.inputSymbols.forEach((a) => {
-            if (df.fromSymbol === LeftMarker && df.shift === 'R') {
+            if (df.fromSymbol === LeftMarker && df.shift === tm.rightShiftSymbol) {
                 tm.tapeSymbols.forEach((X) => {
                     // 2.1
                     let from = `[${df.fromState} ${LeftMarker} ${X} ${a} ${RightMarker}]`;
@@ -67,7 +67,7 @@ try {
                 });
             }
             else {
-                if (df.fromSymbol === RightMarker && df.shift === 'L') {
+                if (df.fromSymbol === RightMarker && df.shift === tm.leftShiftSymbol) {
                     tm.tapeSymbols.forEach((X) => {
                         // 2.4
                         let from = `[${LeftMarker} ${X} ${a} ${df.fromState} ${RightMarker}]`;
@@ -78,7 +78,7 @@ try {
                     });
                 }
                 else {
-                    if (df.shift === 'L') {
+                    if (df.shift === tm.leftShiftSymbol) {
                         // 2.2
                         let from = `[${LeftMarker} ${df.fromState} ${df.fromSymbol} ${a} ${RightMarker}]`;
                         (grammar[from] = grammar[from] || []).push(`[${df.toState} ${LeftMarker} ${df.toSymbol} ${a} ${RightMarker}]`);
@@ -195,5 +195,5 @@ try {
     });
 }
 catch (e) {
-    console.log(e.message);
+    console.log('Error: ' + e.message);
 }
