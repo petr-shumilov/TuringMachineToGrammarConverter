@@ -145,19 +145,19 @@ try {
                                 if (grammar[_from] === undefined) {
                                     grammar[_from] = [];
                                 }
-                                grammar[_from].push(`[${LeftMarker} ${df.toSymbol} ${a}][${df.fromState} ${Z} ${b}]`);
+                                grammar[_from].push(`[${LeftMarker} ${df.toSymbol} ${a}][${df.toState} ${Z} ${b}]`);
                                 // 6.1
                                 _from = `[${df.fromState} ${df.fromSymbol} ${a}][${Z} ${b}]`;
                                 if (grammar[_from] === undefined) {
                                     grammar[_from] = [];
                                 }
-                                grammar[_from].push(`[${df.toSymbol} ${a}][${df.fromState} ${Z} ${b}]`);
+                                grammar[_from].push(`[${df.toSymbol} ${a}][${df.toState} ${Z} ${b}]`);
                                 //6.3
                                 _from = `[${df.fromState} ${df.fromSymbol} ${a}][${Z} ${b} ${RightMarker}]`;
                                 if (grammar[_from] === undefined) {
                                     grammar[_from] = [];
                                 }
-                                grammar[_from].push(`[${df.toSymbol} ${a}][${df.fromState} ${Z} ${b} ${RightMarker}]`);
+                                grammar[_from].push(`[${df.toSymbol} ${a}][${df.toState} ${Z} ${b} ${RightMarker}]`);
                             });
                         });
 
