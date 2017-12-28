@@ -1,5 +1,4 @@
 const fs = require('fs');
-const os = require('os');
 
 try {
 
@@ -7,7 +6,7 @@ try {
 
     let deltaFunctions = [];
     let states = new Set();
-    tmSrc.split(os.EOL).forEach((line) => {
+    tmSrc.split('\n').forEach((line) => {
 
         let parsedLine = /([^\s]+) ([^\s]+) -> ([^\s]+) ([^\s]+) ([^\s]+)/.exec(line);
 
@@ -179,15 +178,16 @@ try {
     });
 
     // output result
+
     let writeStream = fs.createWriteStream('grammar1.txt');
     Object.keys(grammar).forEach((key) => {
         if (Array.isArray(grammar[key]) === true) {
             for (let i = 0; i < grammar[key].length; ++i) {
-                writeStream.write(`${key} -> ${grammar[key][i]}\r\n`);
+                writeStream.write(`${key} -> ${grammar[key][i]}\n`);
             }
         }
         else {
-            writeStream.write(`${key} -> ${grammar[key]}\r\n`);
+            writeStream.write(`${key} -> ${grammar[key]}\n`);
         }
     });
     writeStream.end(() => {
