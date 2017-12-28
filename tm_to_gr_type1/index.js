@@ -59,16 +59,11 @@ try {
                 tm.tapeSymbols.forEach((X) => {
                     // 2.1
                     let from = `[${df.fromState} ${LeftMarker} ${X} ${a} ${RightMarker}]`;
-                    if (grammar[from] === undefined) {
-                        grammar[from] = [];
-                    }
-                    grammar[from].push(`[${LeftMarker} ${df.toState} ${X} ${a} ${RightMarker}]`);
-                    //5.1
+                    (grammar[from] = grammar[from] || []).push(`[${LeftMarker} ${df.toState} ${X} ${a} ${RightMarker}]`);
+
+                     //5.1
                     from = `[${df.fromState} ${LeftMarker} ${X} ${a}]`;
-                    if (grammar[from] === undefined) {
-                        grammar[from] = [];
-                    }
-                    grammar[from].push(`[${LeftMarker} ${df.toState} ${X} ${a}]`);
+                    (grammar[from] = grammar[from] || []).push(`[${LeftMarker} ${df.toState} ${X} ${a}]`);
                 });
             }
             else {
@@ -76,55 +71,34 @@ try {
                     tm.tapeSymbols.forEach((X) => {
                         // 2.4
                         let from = `[${LeftMarker} ${X} ${a} ${df.fromState} ${RightMarker}]`;
-                        if (grammar[from] === undefined) {
-                            grammar[from] = [];
-                        }
-                        grammar[from].push(`[${LeftMarker} ${df.toState} ${X} ${a} ${RightMarker}]`);
+                        (grammar[from] = grammar[from] || []).push(`[${LeftMarker} ${df.toState} ${X} ${a} ${RightMarker}]`);
                         // 7.2
                         from = `[${X} ${a} ${df.fromState} ${RightMarker}]`;
-                        if (grammar[from] === undefined) {
-                            grammar[from] = [];
-                        }
-                        grammar[from].push(`[${df.toState} ${X} ${a} ${RightMarker}]`);
+                        (grammar[from] = grammar[from] || []).push(`[${df.toState} ${X} ${a} ${RightMarker}]`);
                     });
                 }
                 else {
                     if (df.shift === 'L') {
                         // 2.2
                         let from = `[${LeftMarker} ${df.fromState} ${df.fromSymbol} ${a} ${RightMarker}]`;
-                        if (grammar[from] === undefined) {
-                            grammar[from] = [];
-                        }
-                        grammar[from].push(`[${df.toState} ${LeftMarker} ${df.toSymbol} ${a} ${RightMarker}]`);
+                        (grammar[from] = grammar[from] || []).push(`[${df.toState} ${LeftMarker} ${df.toSymbol} ${a} ${RightMarker}]`);
                         // 5.2
                         from = `[${LeftMarker} ${df.fromState} ${df.fromSymbol} ${a}]`;
-                        if (grammar[from] === undefined) {
-                            grammar[from] = [];
-                        }
-                        grammar[from].push(`[${df.toState} ${LeftMarker} ${df.toSymbol} ${a}]`);
+                        (grammar[from] = grammar[from] || []).push(`[${df.toState} ${LeftMarker} ${df.toSymbol} ${a}]`);
 
                         tm.tapeSymbols.forEach((Z) => {
                             tm.inputSymbols.forEach((b) => {
                                 // 6.2
                                 let _from = `[${Z} ${b}][${df.fromState} ${df.fromSymbol} ${a}]`;
-                                if (grammar[_from] === undefined) {
-                                    grammar[_from] = [];
-                                }
-                                grammar[_from].push(`[${df.toState} ${Z} ${b}][${df.toSymbol} ${a}]`);
+                                (grammar[_from] = grammar[_from] || []).push(`[${df.toState} ${Z} ${b}][${df.toSymbol} ${a}]`);
 
                                 //6.4
                                 _from = `[${LeftMarker} ${Z} ${b}][${df.fromState} ${df.fromSymbol} ${a}]`;
-                                if (grammar[_from] === undefined) {
-                                    grammar[_from] = [];
-                                }
-                                grammar[_from].push(`[${LeftMarker} ${df.toState} ${Z} ${b}][${df.toSymbol} ${a}]`);
+                                (grammar[_from] = grammar[_from] || []).push(`[${LeftMarker} ${df.toState} ${Z} ${b}][${df.toSymbol} ${a}]`);
 
                                 // 7.3
                                 _from = `[${Z} ${b}][${df.fromState} ${df.fromSymbol} ${a} ${RightMarker}]`;
-                                if (grammar[_from] === undefined) {
-                                    grammar[_from] = [];
-                                }
-                                grammar[_from].push(`[${df.toState} ${Z} ${b}][${df.toSymbol} ${a} ${RightMarker}]`);
+                                (grammar[_from] = grammar[_from] || []).push(`[${df.toState} ${Z} ${b}][${df.toSymbol} ${a} ${RightMarker}]`);
 
                             });
                         });
@@ -133,40 +107,25 @@ try {
                     else {
                         // 2.3
                         let from = `[${LeftMarker} ${df.fromState} ${df.fromSymbol} ${a} ${RightMarker}]`;
-                        if (grammar[from] === undefined) {
-                            grammar[from] = [];
-                        }
-                        grammar[from].push(`[${LeftMarker} ${df.toSymbol} ${a} ${df.toState} ${RightMarker}]`);
+                        (grammar[from] = grammar[from] || []).push(`[${LeftMarker} ${df.toSymbol} ${a} ${df.toState} ${RightMarker}]`);
 
                         tm.tapeSymbols.forEach((Z) => {
                             tm.inputSymbols.forEach((b) => {
                                 // 5.3
                                 let _from = `[${LeftMarker} ${df.fromState} ${df.fromSymbol} ${a}][${Z} ${b}]`;
-                                if (grammar[_from] === undefined) {
-                                    grammar[_from] = [];
-                                }
-                                grammar[_from].push(`[${LeftMarker} ${df.toSymbol} ${a}][${df.toState} ${Z} ${b}]`);
+                                (grammar[_from] = grammar[_from] || []).push(`[${LeftMarker} ${df.toSymbol} ${a}][${df.toState} ${Z} ${b}]`);
                                 // 6.1
                                 _from = `[${df.fromState} ${df.fromSymbol} ${a}][${Z} ${b}]`;
-                                if (grammar[_from] === undefined) {
-                                    grammar[_from] = [];
-                                }
-                                grammar[_from].push(`[${df.toSymbol} ${a}][${df.toState} ${Z} ${b}]`);
+                                (grammar[_from] = grammar[_from] || []).push(`[${df.toSymbol} ${a}][${df.toState} ${Z} ${b}]`);
                                 //6.3
                                 _from = `[${df.fromState} ${df.fromSymbol} ${a}][${Z} ${b} ${RightMarker}]`;
-                                if (grammar[_from] === undefined) {
-                                    grammar[_from] = [];
-                                }
-                                grammar[_from].push(`[${df.toSymbol} ${a}][${df.toState} ${Z} ${b} ${RightMarker}]`);
+                                (grammar[_from] = grammar[_from] || []).push(`[${df.toSymbol} ${a}][${df.toState} ${Z} ${b} ${RightMarker}]`);
                             });
                         });
 
                         // 7.1
                         from = `[${df.fromState} ${df.fromSymbol} ${a} ${RightMarker}]`;
-                        if (grammar[from] === undefined) {
-                            grammar[from] = [];
-                        }
-                        grammar[from].push(`[${df.toSymbol} ${a} ${df.toState} ${RightMarker}]`);
+                        (grammar[from] = grammar[from] || []).push(`[${df.toSymbol} ${a} ${df.toState} ${RightMarker}]`);
                     }
                 }
             }
@@ -190,10 +149,7 @@ try {
                     `[${X} ${a} ${q} ${RightMarker}]`
                 ];
                 for (let i = 0; i < from.length; ++i) {
-                    if (grammar[from[i]] === undefined) {
-                        grammar[from[i]] = [];
-                    }
-                    grammar[from[i]].push(`${a}`);
+                    (grammar[from[i]] = grammar[from[i]] || []).push(`${a}`);
                 }
 
                 // 9
@@ -205,10 +161,7 @@ try {
                         `[${LeftMarker} ${X} ${a}]${b}`
                     ];
                     for (let i = 0; i < _from.length; ++i) {
-                        if (grammar[_from[i]] === undefined) {
-                            grammar[_from[i]] = [];
-                        }
-                        grammar[_from[i]].push(`${a}${b}`);
+                        (grammar[_from[i]] = grammar[_from[i]] || []).push(`${a}`);
                     }
                 })
             });
