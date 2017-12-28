@@ -59,9 +59,8 @@ try {
         turingMachine.inputSymbols.concat(EPS).forEach((a) => {
             let from = `${deltaFunction.fromState}[${a},${deltaFunction.fromSymbol}]`;
             let to = `[${a},${deltaFunction.toSymbol}]${deltaFunction.toState}`;
-            if (grammar[from] === undefined)
-                grammar[from] = [];
-            grammar[from].push(to);
+            (grammar[from] = grammar[from] || []).push(to);
+
         });
     });
 
@@ -72,10 +71,7 @@ try {
                 turingMachine.tapeSymbols.forEach((E) => {
                     let from = `[${b},${E}]${deltaFunction.fromState}[${a},${deltaFunction.fromSymbol}]`;
                     let to = `${deltaFunction.toState}[${b},${E}][${a},${deltaFunction.toSymbol}]`;
-                    if (grammar[from] === undefined) {
-                        grammar[from] = [];
-                    }
-                    grammar[from].push(to);
+                    (grammar[from] = grammar[from] || []).push(to);
                 });
             });
         });
@@ -90,15 +86,8 @@ try {
             let _from = `${turingMachine.acceptState}[${a},${C}]`;
             let to = `${turingMachine.acceptState}${a}${turingMachine.acceptState}`;
 
-            if (grammar[from] === undefined) {
-                grammar[from] = [];
-            }
-            if (grammar[_from] === undefined) {
-                grammar[_from] = [];
-            }
-
-            grammar[from].push(to);
-            grammar[_from].push(to);
+            (grammar[from] = grammar[from] || []).push(to);
+            (grammar[_from] = grammar[_from] || []).push(to);
 
         });
     });
