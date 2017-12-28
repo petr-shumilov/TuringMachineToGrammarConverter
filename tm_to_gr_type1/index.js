@@ -162,7 +162,7 @@ try {
                         });
 
                         // 7.1
-                        from = `[${df.fromState} ${df.fromSymbol} ${a} ${RightMarker}}]`;
+                        from = `[${df.fromState} ${df.fromSymbol} ${a} ${RightMarker}]`;
                         if (grammar[from] === undefined) {
                             grammar[from] = [];
                         }

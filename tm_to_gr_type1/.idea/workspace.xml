@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-558">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="96">
+              <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="grammar1.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="grammar1.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grammar1.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="40" lean-forward="false" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+            <state relative-caret-position="109">
+              <caret line="539" column="10" lean-forward="false" selection-start-line="539" selection-start-column="0" selection-end-line="539" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -64,6 +64,10 @@
       <find>[# Q0 $ $]A2</find>
       <find>[# Q0 # #]A2</find>
       <find>A2</find>
+      <find>[Q0 1 1</find>
+      <find>[Q0 1 1 $</find>
+      <find>}}</find>
+      <find>[Q0 1 1 $]</find>
     </findStrings>
     <replaceStrings>
       <replace>tm</replace>
@@ -165,12 +169,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1514328466264</updated>
-      <workItem from="1514328467350" duration="15655000" />
+      <workItem from="1514328467350" duration="15801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15655000" />
+    <option name="totallyTimeSpent" value="15801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -221,24 +225,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/grammar1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="40" lean-forward="false" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        <state relative-caret-position="109">
+          <caret line="539" column="10" lean-forward="false" selection-start-line="539" selection-start-column="0" selection-end-line="539" selection-end-column="10" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="LargeFileEditor">
         <state relative-caret-position="174">
           <caret line="23786" column="23" lean-forward="false" selection-start-line="23786" selection-start-column="23" selection-end-line="23786" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-558">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
