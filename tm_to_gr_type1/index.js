@@ -161,7 +161,7 @@ try {
                         `[${LeftMarker} ${X} ${a}]${b}`
                     ];
                     for (let i = 0; i < _from.length; ++i) {
-                        (grammar[_from[i]] = grammar[_from[i]] || []).push(`${a}`);
+                        (grammar[_from[i]] = grammar[_from[i]] || []).push(`${a}${b}`);
                     }
                 })
             });
