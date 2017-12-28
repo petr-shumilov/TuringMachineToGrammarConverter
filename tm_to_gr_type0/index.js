@@ -46,9 +46,9 @@ try {
     // build grammar
     grammar['A1'] = `${turingMachine.startState}A2`;
     grammar['A2'] = [];
-    for (let a in turingMachine.inputSymbols) {
+    turingMachine.inputSymbols.forEach((a) => {
         grammar['A2'].push(`[${a},${a}]A2`);
-    }
+    });
     grammar['A2'].push('A3');
     grammar['A3'] = [];
     grammar['A3'].push(`[${EPS},${Blank}]A3`);
